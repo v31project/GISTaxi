@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-	<div class="row">
+	<div class="row my-container">
 		<div class="col-md-10">
 			<form class="form-inline" role="search" name="searchUser" action="aboutUsers" method="get">
 				<?php if ($_SESSION['status'] == "superadmin") { ?>
@@ -48,9 +48,8 @@
 			</form>
 		</div>
 	</div>
-	<div class="row">
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered table-hover table-condensed">
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered table-hover table-condensed">
 
 	<?php 	
 		//var_dump($data);
@@ -84,19 +83,19 @@
 			</tr>
 			<?php foreach ($data['users'] as $user) { ?>
 			<tr>
-				<td class="col-md-1"><?= $user['phone']; ?></td>
-				<td class="col-md-1"><?= $user['regDate']; ?></td>
-				<td class="col-md-1"><?= $user['nameCity']; ?></td>
-				<td class="col-md-1"><?= $user['locationStatus']; ?></td>
-				<td class="col-md-1"><?= $user['balance']; ?></td>
-				<td class="col-md-1"><?= $user['workingStatus']; ?></td>
-				<td class="col-md-1"><?= $user['brandCar']; ?></td>
-				<td class="col-md-1"><?= $user['modelCar']; ?></td>
-				<td class="col-md-1"><?= $user['color']; ?></td>
-				<td class="col-md-1"><?= $user['stateNumber']; ?></td>
-				<td class="col-md-1"><?= $user['lockStatus']; ?></td>
-				<td class="col-md-1"><?= $user['revenue']; ?></td>
-				<td class="col-md-1"><img class="photo" src="../<?= $user['photo']; ?>"></td>
+				<td><?= $user['phone']; ?></td>
+				<td><?= $user['regDate']; ?></td>
+				<td><?= $user['nameCity']; ?></td>
+				<td><?= $user['locationStatus']; ?></td>
+				<td><?= $user['balance']; ?></td>
+				<td><?= $user['workingStatus']; ?></td>
+				<td><?= $user['brandCar']; ?></td>
+				<td><?= $user['modelCar']; ?></td>
+				<td><?= $user['color']; ?></td>
+				<td><?= $user['stateNumber']; ?></td>
+				<td><?= $user['lockStatus']; ?></td>
+				<td><?= $user['revenue']; ?></td>
+				<td><img class="photo" src="../<?= $user['photo']; ?>"></td>
 			</tr>
 			<?php } ?>
 			<tr>
@@ -173,8 +172,7 @@
                        // Устанавливаем идентификатор фрагмента гиперссылок пагинатора
                      ->setFragmentIdentifier("result1");
     ?>
-	    	</table>
-		</div>
+    	</table>
 	</div>
 
     <div class="text-center">
