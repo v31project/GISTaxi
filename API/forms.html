@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>api</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	    //var prefix = 'http://v31project.pe.hu/API/index.php/user';
+	    var prefix = 'http://localhost:8080/GISTaxi/API/index.php/user/photo';
+	 
+	    var RestGet = function() {
+	        $.ajax({
+	            type: 'GET',
+	            url:  prefix,
+	            //headers: {'Origin':'localhost:8080'},
+	            //headers: {'Token':'48b49e87736f57b5333f9e703fc9f1fa:driver'},
+	            //data: {phone:'375335896781'},
+	            //dataType: 'json',
+	            async: true,
+	            success: function(result, jqXHR, textStatus, errorThrown) {
+	                //alert('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	                $('#result-div').html('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	                //alert(JSON.parse(JSON.stringify(result)));
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	            	$('#result-div').html('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	                //alert('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	            }
+	        });
+	    }
+	 
+	    var RestPut = function() {
+	        $.ajax({
+	            type: 'PUT',
+	            url:  prefix,
+	            headers: {'Token':'45af1384e3702cba65b8f3d266cb36be:passenger'},
+	            //headers: {'Access-Control-Allow-Origin':'*'},
+	            data:{phone:'375298127124', dataPhoto:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAAoCAYAAAA16j4lAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAKsSURBVHja7Jq9saQwEIRJQSngnb0pkAIpKAUwqMJVCqRACtjPUwq4ZyoFzpGquqZG/O3CcvXaaAMQ0mi+0YzEbvHn5+/ySS3LUlDPUUHAvwTwux0RMAFTBEwRMEXAFAETMAETMAETMEXAFAFTBEwRMAETMAETMAHH675rz6ruu3bpu7Z5ow+qa6/9wf8GwE1s58R7jnAJ+PcAvir3fyFFE/DNgIfo8BIGfcV7gzBm6rs2KIDTKl36rvXx/WKjHQphO/Fs6LvWwPMy2iHfxzY22pGej9FuD23kNd4PIgMFMd4k/CXnKPuohc0+2ngLYBsHtUpanZXJT2JSmuaTgH3meQJhYt9amwbgLhv9HAHsD8wRAyHssMfeAbhUVusEjqxg5aAjcVKNeBcDps68J1O0i2PaTA234KxRrOghtjMAyAoAZ1ewpkH4pgboOG6yZ1SykE9BckcNniEiS3BoUFZGtVGDbQboFuB5JdJTe5spHbmxixWgRwDbOL5M1fVOX6zJ3AF4ECklxIgbAfyg1BVtUvUJwGaHI5wSCFO8/xL1u/og4GnFpi3A7imAcXUOUGctbMA83L8KsN+583SK46sLAFuwyyllYy/g+tvHJKyvmJYNXMta+0nAaWUGUav2qIK63BxM0WEDcC5gmoMp2j3hHDxDjSmVo5Gc6FnAVWa1uswx6wXwmphhtGPYCMe7GdoY2BR5peZbYQMCbhRAL8geW4AN+M4pQeLvBDxkHN+Ibf+7gI2yWUnnWL9Sq9aOWejscecxKdcXAtZsPVKDiw2bw52AczvQEjY0nwCc7s3KGbZQdqszBIBRnnulxg3KR4WwkjXS/F6ZjxSzCMbmAGDtQ0fKOLZ/8KfK/03hwCaO36IJmIAJmIAJ+HLA1EP+skMnEDBFwBQBU1/RvwEAeUxWMNROoTsAAAAASUVORK5CYII='},
+	            dataType: 'json',
+	            contentType: 'application/json',
+	            crossDomain: true,
+	            //xhrFields: {withCredentials: true},
+	            async: true,
+	            success: function(result, textStatus, request, errorThrown) {
+	               	//alert(request.getResponseHeader('Token'));
+	               	//alert(request.getResponseHeader('Access-Control-Allow-Origin'));
+	                alert('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	                //alert('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	                $('#result-div').html('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	            }
+	        });
+	    }
+	 
+	    var RestPost = function() {
+	        $.ajax({
+	            type: 'POST',
+	            url:  prefix,
+	            //headers: {'Token':'5cee514ef01daa34c129f6fce7a66bb3:passenger'},
+	            data: {phone:'375298127124', status:'passenger'},
+	            dataType: 'json',
+	            //async: false,
+	            success: function(result, jqXHR, textStatus, errorThrown) {
+	                //alert('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	                $('#result-div').html('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	                //alert('Error: ' + jqXHR.status + ' ' + jqXHR.responseText);
+	                $('#result-div').html('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	            }
+	        });
+	    }
+	 
+	    var RestDelete = function() {
+	        $.ajax({
+	            type: 'DELETE',
+	            url:  prefix + '?phone=333',
+	            headers: {'Token':'094e1d7d6263bdb4718697b28183e302:driver'},
+	            dataType: 'json',
+	            async: true,
+	            success: function(result, jqXHR, textStatus, errorThrown) {
+	                alert('Success: ' + textStatus.status + ' ' + textStatus.statusText + '\n' + JSON.stringify(result));
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	            	$('#result-div').html('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	                //alert('Error:' + jqXHR.status + ' ' + jqXHR.responseText);
+	            }
+	        });
+	    }
+	</script>
+</head>
+<body>
+	
+<form action="http://localhost:8080/gistaxi/admin/app/getInfo.php" method="post">
+	<input name="phone" type="text" value="375333579694">
+	<input name="table" type="text" value="Passengers">
+	<input name="submit" type="submit">
+</form>
+
+	<!--форма регистрации-->
+	<!--<form name="reg" action="http://v31project.pe.hu/API/index.php/user" method="post">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="submit" type="submit">
+	</form>-->
+	
+
+	<!--форма активации-->
+	<!--<form name="reg" action="index.php/user" method="post">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="securityKey" type="text" placeholder="securityKey">
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+	<!--форма выхода из аккаунта-->
+	<!--<form name="logoff" action="index.php" method="post">
+		<input name="method" type="text" value="logOff">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+	<!-- форма получения личной информации-->
+	<!--<form name="getIngo" action="index.php/user/info" method="get">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="submit" type="submit">
+	</form> 
+	-->
+
+	<!-- форма сохранения личной информации-->
+	<!--<form name="editIngo" action="index.php" method="post">
+		<input name="method" type="text" value="editInfo">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="name" type="text" placeholder="name">
+		<input name="sex" type="text" placeholder="sex">
+		<input name="city" type="text" placeholder="city">
+		<input name="brandCar" type="text" placeholder="brandCar">
+		<input name="modelCar" type="text" placeholder="modelCar">
+		<input name="colorCar" type="text" placeholder="colorCar">
+		<input name="stateNumber" type="text" placeholder="stateNumber">
+		<input name="submit" type="submit">
+	</form> 
+	-->
+
+	<!-- форма сохранения фото-аватар-->
+	<!--<form name="editPhoto" action="index.php" method="post" enctype="multipart/form-data">
+		<input name="method" type="text" value="editPhoto">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="photo" type="file" accept="image/*,image/jpeg">
+		<input name="submit" type="submit">
+	</form> 
+	-->
+
+	<!-- форма добавления заказа-->
+	<!--<form name="addOrder" action="index.php" method="post">
+		<input name="method" type="text" value="addOrder">
+		<input name="phonePassenger" type="text" placeholder="phonePassenger">
+		<input name="token" type="text" placeholder="token">
+		<input name="locationStatus" type="text" placeholder="locationStatus">
+		<input name="dateStart" type="date" placeholder="dateStart">
+		<input name="pointStart" type="text" placeholder="pointStart">
+		<input name="pointFinish1" type="text" placeholder="pointFinish1">
+		<input name="pointFinish2" type="text" placeholder="pointFinish2">
+		<input name="price" type="text" placeholder="price">
+		<input name="typePrice" type="text" placeholder="typePrice">
+		<input name="phoneDriver" type="text" placeholder="phoneDriver">
+		<textarea name="comment" placeholder="comment"></textarea>
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+	<!--форма изменения статуса локации-->
+	<!--<form name="setLocationStatus" action="index.php" method="post">
+		<input name="method" type="text" value="setLocationStatus">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="locationStatus" type="text" placeholder="locationStatus">
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+	<!--форма изменения статуса работы водителя-->
+	<!--<form name="setWorkingStatus" action="index.php" method="post">
+		<input name="method" type="text" value="setWorkingStatus">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="workingStatus" type="text" placeholder="workingStatus">
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+
+	<!--форма получения списка ожидающих заказов-->
+	<!--<form name="getExpectOrders" action="index.php" method="get">
+		<input name="method" type="text" value="getExpectOrders">
+		<input name="phone" type="text" placeholder="phone">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="locationStatus" type="text" placeholder="locationStatus">
+		<input name="submit" type="submit">
+	</form>
+	-->
+
+	<!--форма отправки отзыва о водителе после заказа-->
+	<!--<form name="setReview" action="index.php" method="post">
+		<input name="method" type="text" value="setReview">
+		<input name="phonePassenger" type="text" placeholder="phonePassenger">
+		<input name="status" type="text" placeholder="status">
+		<input name="token" type="text" placeholder="token">
+		<input name="phoneDriver" type="text" placeholder="phoneDriver">
+		<input name="rating" type="text" placeholder="rating">
+		<input name="textReview" type="text" placeholder="textReview">
+		<input name="submit" type="submit">
+	</form>
+	-->
+	
+ 
+    <h3>Это простой пример использования REST c помощью Ajax</h3>
+ 
+    <button type="button" onclick="RestGet()">Метод GET</button>
+    <button type="button" onclick="RestPost()">Метод POST</button>
+    <button type="button" onclick="RestDelete()">Метод DELETE</button>
+    <button type="button" onclick="RestPut()">Метод PUT</button>
+    <div id="result-div"></div>
+</body>
+</html>
